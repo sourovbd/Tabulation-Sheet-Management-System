@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="Layout :: headerFragment">
+	<title>Result Search</title>
+</head>
+<body>
+	<div th:substituteby="Layout :: defaultFragment"></div>
+	<div id="body">
+		<fieldset>
+			<legend>Result Search</legend>
+			<div id="box">
+				<form action="#" th:action="@{/main/showResultWithParam}" th:object="${courseDetails}"  method="GET" > <!-- fetchResultQuery -->
+				<p>
+					<label>Select Course No.</label> 
+					<!-- <input 	type="text" id="courseNo" name="courseNo"  />  -->
+					<select th:field="*{courseNo}">
+                         <option value=""></option>
+                         <option th:each="courseDetails : ${courseDetailsListCourseNo}"
+                            th:value="${courseDetails}"
+                            th:utext="${courseDetails}"/>
+                  </select>
+				</p>
+				<p>
+					<label>Select Batch No.</label> 
+					<!-- <input 	type="text" id="batchNo" name="batchNo"  /> -->
+					<select th:field="*{batchNo}">
+                         <option value=""></option>
+                         <option th:each="courseDetails : ${courseDetailsListBatchNo}"
+                            th:value="${courseDetails}"
+                            th:utext="${courseDetails}"/>
+                  </select>
+				</p>
+				<p>
+					<button class="formbutton" name="Submit" type="submit">Submit</button>
+				</p>	
+			</form>
+			</div>
+		</fieldset>
+		<br/><br/>		
+	</div>
+	<br/><br/><br/>
+	<div th:substituteby="Layout :: footerFragment"></div>
+</body>
+</html>

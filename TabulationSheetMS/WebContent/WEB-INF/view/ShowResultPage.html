@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="Layout :: headerFragment">
+	<title>Result Show page</title>
+</head>
+<body>
+	<div th:substituteby="Layout :: defaultFragment"></div>
+	<div id="body">
+	<br/>
+	<div align="center">
+		<fieldset>
+			<legend>Result Details</legend>
+		</fieldset>
+	</div><br/>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th>Registration No.</th>
+						<th>Name</th>
+						<th>Term test 1</th>
+						<th>Term test 2</th>
+						<th>Term test Mark</th>
+						<th>Attendance</th>
+						<th>Final Mark</th>
+						<th>Total Mark</th>
+						<th>CGPA</th>
+						<th>Grade Letter</th>
+						<th>Coruse No.</th>
+						<th>Exam Held</th>
+						<th>Batch No.</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="resultForm : ${resultFormList}">
+						<td th:text="${resultForm.regNo}"></td>
+						<td th:text="${resultForm.name}"></td>
+						<td th:text="${resultForm.tt1}"></td>
+						<td th:text="${resultForm.tt2}"></td>
+						<td th:text="${resultForm.ttMark}"></td>
+						<td th:text="${resultForm.attendance}"></td>	
+						<td th:text="${resultForm.finalMark}"></td>		
+						<td th:text="${resultForm.totalMark}"></td>
+						<td th:text="${resultForm.cgpa}"></td>
+						<td th:text="${resultForm.gradeLetter}"></td>
+						<td th:text="${resultForm.courseNo}"></td>
+						<td th:text="${resultForm.examHeld}"></td>
+						<td th:text="${resultForm.batchNo}"></td>
+						<td width="85px"><a th:href="@{'/main/editSingleResultShowpage/'+${resultForm.regNo}+'/'+${resultForm.courseNo}+'/'+${resultForm.examHeld}+'/'+${resultForm.batchNo}}">Edit</a> 
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- <div>
+			<p align="center"><a th:href="@{'/main/addSingleResult/'}">Add More</a></p>
+		</div> -->
+		<br/><br/>
+	</div>
+	<br/><br/><br/>
+	<div th:substituteby="Layout :: footerFragment"></div>
+</body>
+</html>

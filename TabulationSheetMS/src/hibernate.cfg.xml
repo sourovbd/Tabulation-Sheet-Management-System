@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+					<!-- Related to the connection START -->
+    <session-factory name="sessionFactory">
+       
+        			<!-- Related to hibernate properties START -->
+        <property name="hibernate.dialect"> org.hibernate.dialect.MySQLDialect</property>
+        
+        			<!-- Related to mapping START -->
+      
+        <mapping class="com.sv.pghms.model.TUser" />
+        <mapping class="com.sv.pghms.model.TResultForm" />
+        <mapping class="com.sv.pghms.model.TCourseDetails" />
+       
+    </session-factory>
+</hibernate-configuration>

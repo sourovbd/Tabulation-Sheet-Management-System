@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="Layout :: headerFragment">
+	<title>Result Entry Form</title>
+</head>
+<body>
+	<div th:substituteby="Layout :: defaultFragment"></div>
+	<div id="body">
+		<fieldset>
+			<legend>Result Entry Form</legend>
+			<div id="box">
+				<form action="#" th:action="@{/main/addSingleResult}" th:object="${resultForm}" method="POST" >
+				<p>
+					<label>Registration No.</label> 
+					<input 	type="text" id="regNo" name="regNo" th:field="*{regNo}" /> 
+				</p>
+				<p>
+					<label>Name</label> 
+					<input 	type="text" id="name" name="name" th:field="*{name}" />
+				</p>
+				<p>
+					<label>Term test 1</label> 
+					<input 	type="text" id="tt1" name="tt1" th:field="*{tt1}" /> 
+				</p>
+				<p>
+					<label>Term test 2</label> 
+					<input 	type="text" id="tt2" name="tt2" th:field="*{tt2}" /> <!--  -->
+				</p>
+				<p>
+					<label>Attendance</label> 
+					<input 	type="text" id="attendance" name="attendance" th:field="*{attendance}" /> <!--  -->
+				</p>
+				<p>
+					<label>Final</label> 
+					<input 	type="text" id="finalMark" name="finalMark" th:field="*{finalMark}" /> <!--  -->
+				</p>	
+				<p>
+					<button class="formbutton" name="Submit" type="submit">Submit</button>
+				</p>	
+			</form>
+			</div>
+		</fieldset>
+		<br/><br/>
+		<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Registration No.</th>
+					<th>Name</th>
+					<th>Term test 1</th>
+					<th>Term test 2</th>
+					<th>Attendance</th>
+					<th>Final</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="resultForm : ${resultFormList}">
+					<td th:text="${resultForm.regNo}"></td>
+					<td th:text="${resultForm.name}"></td>
+					<td th:text="${resultForm.tt1}"></td>
+					<td th:text="${resultForm.tt2}"></td>
+					<td th:text="${resultForm.attendance}"></td>	
+					<td th:text="${resultForm.finalMark}"></td>	
+					<td width="85px"><a th:href="@{'/main/editSingleResult/'+${resultForm.regNo}}">Edit</a> |
+						    <a th:href="@{'/main/deleteSingleResult/'+${resultForm.regNo}}">Delete</a>
+					</td>	
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		
+	</div>
+	<br/><br/><br/>
+	<div th:substituteby="Layout :: footerFragment"></div>
+</body>
+</html>

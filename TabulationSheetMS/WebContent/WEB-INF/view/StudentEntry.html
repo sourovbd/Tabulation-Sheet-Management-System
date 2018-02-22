@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="Layout :: headerFragment">
+	<title>Student Registration Form</title>
+</head>
+<body>
+	<div th:substituteby="Layout :: defaultFragment"></div>
+	<div id="body">
+		<fieldset>
+			<legend>Student Registration Form</legend>
+			<div id="box">
+				<form action="#" th:action="@{/main/studentEntry}" th:object="${resultForm}" method="POST" >
+				<p style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${starMarkedfieldsAreRequired}" />
+				<p>
+					<label>Registration No.</label> 
+					<input 	type="text" id="regNo" name="regNo" th:field="*{regNo}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<label>Name</label> 
+					<input 	type="text" id="name" name="name" th:field="*{name}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<label>Select Course No.</label> 
+					<!-- <input 	type="text" id="courseNo" name="courseNo"  />  -->
+					<select th:field="*{courseNo}">
+                         <option value=""></option>
+                         <option th:each="courseDetails : ${courseDetailsList_courseNo}"
+                            th:value="${courseDetails}"
+                            th:utext="${courseDetails}"/>
+                  </select> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<label>Select Batch No.</label> 
+					<!-- <input 	type="text" id="batchNo" name="batchNo"  /> -->
+					<select th:field="*{batchNo}">
+                         <option value=""></option>
+                         <option th:each="courseDetails : ${courseDetailsList_batchNo}"
+                            th:value="${courseDetails}"
+                            th:utext="${courseDetails}"/>
+                  </select> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<button class="formbutton" name="Submit" type="submit">Submit</button>
+				</p>	
+			</form>
+			</div>
+		</fieldset>
+		<br/><br/>
+		<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Registration No.</th>
+					<th>Name</th>
+					<th>Coruse No.</th>
+					<th>Batch No.</th>
+					<!-- <th></th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="resultForm : ${resultFormList}">
+					<td th:text="${resultForm.regNo}"></td>
+					<td th:text="${resultForm.name}"></td>
+					<td th:text="${resultForm.courseNo}"></td>
+					<td th:text="${resultForm.batchNo}"></td>
+					<td width="85px"><a th:href="@{'/main/editSingleStudent/'+${resultForm.regNo}+'/'+${resultForm.courseNo}+'/'+${resultForm.batchNo}}">Edit</a> |
+						    <a th:href="@{'/main/deleteSingleStudent/'+${resultForm.regNo}+'/'+${resultForm.courseNo}+'/'+${resultForm.batchNo}}">Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		
+	</div>
+	<br/><br/><br/>
+	<div th:substituteby="Layout :: footerFragment"></div>
+</body>
+</html>

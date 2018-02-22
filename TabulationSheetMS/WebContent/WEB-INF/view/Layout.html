@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="headerFragment">
+
+<!-- CSS Files -->
+	<link type="text/css" href="/TabulationSheetMS/resources/css/styles.css" rel="stylesheet"></link>
+	<link type="text/css" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+<!--  js files -->
+<script type="text/javascript" src="/TabulationSheetMS/resources/js/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="/TabulationSheetMS/resources/js/slider.js"></script>
+<script type="text/javascript" src="/TabulationSheetMS/resources/js/common.js"></script>
+<script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<title>TSMS</title>
+</head>
+
+<body class="noheader">
+
+	<div id="container" th:fragment="defaultFragment">
+
+		<div id="header">
+			<div id="top-navigation" align="right">
+				<label style="color:#C0C0C0">Welcome&nbsp;<strong> <!-- #C0C0C0 -->
+				<span th:text="${beans.utilities.getFullName()}"></span></strong></label> | 
+				<a th:href="@{/j_spring_security_logout}">Log out</a>  
+				<!-- <a th:href="@{/main/resetPassword}">Reset Password</a> -->
+			</div>
+			<h1>
+				<a href="/">TSMS</a>
+			</h1>
+			<h2>TABULATION SHEET MANAGEMENT SYSTEM</h2>
+			<div class="clear"></div>
+		</div>
+
+		<div id="nav" th:switch="${beans.utilities.getLoginRole()}">
+
+			<!-- ******************************************* For Admin ***********************************************************-->
+			
+			<ul class="sf-menu dropdown sf-js-enabled sf-shadow" th:case="'Admin'">
+				<li class=""><a class="has_submenu" href="">Course</a>
+					<ul>	
+						<li><a href="/TabulationSheetMS/main/saveCourseDetails">Entry</a></li>
+						<li><a href="/TabulationSheetMS/main/courseViewPage">View</a></li>
+					</ul>
+				</li>
+				<li class=""><a class="has_submenu" href="">Student</a>
+					<ul>	
+						<li><a href="/TabulationSheetMS/main/studentEntry">Entry</a></li>
+						<li><a href="/TabulationSheetMS/main/studentViewPage">View</a></li>
+					</ul>
+				</li>
+				<li class=""><a class="has_submenu" href="">Setup</a>
+					<ul>
+						<li><a href="/TabulationSheetMS/main/createUser">Create User</a></li>
+						<li><a href="/TabulationSheetMS/main/resetPassword">Reset Password</a></li>
+					</ul>
+				</li>
+			</ul>
+			
+			<!-- ******************************************* For Teacher ***********************************************************-->
+			
+			<ul class="sf-menu dropdown sf-js-enabled sf-shadow" th:case="'Teacher'">
+				<li class=""><a class="has_submenu" href="">Options</a>
+					<ul>
+						<li><a href="/TabulationSheetMS/main/homePage">Result Entry</a></li>	
+					</ul>
+				</li>
+				<li class=""><a class="has_submenu" href="">Setup</a>
+					<ul>
+						<li><a href="/TabulationSheetMS/main/resetPassword">Reset Password</a></li>
+					</ul>
+				</li>
+				<li class=""><a class="has_submenu" href="">Report</a>	
+					
+				</li>
+			</ul> 
+			
+		</div>
+	</div>
+	<div id="footer" th:fragment="footerFragment">
+	    <div id="footer-links">
+	    <p>Copyright &copy;  <a href="http://www.google.com/">Tabulation Sheet Management System.</a></p>
+	            <!-- <p>Copyright &copy;  <a href="http://www.google.com/">Tabulation Sheet Management System.</a>, Developed by Md.Atequer Rahman</p> -->
+	    </div>  
+	</div>
+</body>
+</html>

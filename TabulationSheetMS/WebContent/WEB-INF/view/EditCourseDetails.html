@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="Layout :: headerFragment">
+	<title>Course Details</title>
+</head>
+<body>
+	<div th:substituteby="Layout :: defaultFragment"></div>
+	<div id="body">
+		<fieldset>
+			<legend>Course Details</legend>
+			<div id="box">
+				<form action="#" th:action="@{/main/editCourseDetails}" th:object="${courseDetailsForm}" method="POST" >
+				<p>
+					<label>Course No.</label> 
+					<input 	type="text" id="courseNo" name="courseNo" th:field="*{courseNo}" /> 
+				</p>
+				<p>
+					<label>Course Title</label> 
+					<input 	type="text" id="courseTitle" name="courseTitle" th:field="*{courseTitle}" />
+				</p>
+				<p>
+					<label>Course Credit</label> 
+					<input 	type="text" id="courseCredit" name="courseCredit" th:field="*{courseCredit}" /> 
+				</p>
+				<p>
+					<label>Batch No.</label> 
+					<input 	type="text" id="batchNo" name="batchNo" th:field="*{batchNo}" /> 
+				</p>
+				<p>
+					<label>Semester</label> 
+					<input 	type="text" id="semester" name="semester" th:field="*{semester}" /> 
+				</p>
+				<p>
+					<label>Exam year</label> 
+					<input 	type="text" id="examYear" name="examYear" th:field="*{examYear}" /> 
+				</p>
+				<p>
+					<label>Exam held</label> 
+					<input 	type="text" id="examHeld" name="examHeld" th:field="*{examHeld}" /> 
+				</p>	
+				<p>
+					<button class="formbutton" name="Submit" type="submit">Submit</button>
+				</p>	
+			</form>
+			</div>
+		</fieldset>
+		<br/><br/>		
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Course No.</th>
+					<th>Course Title</th>
+					<th>Course Credit</th>
+					<th>Batch No.</th>
+					<th>Semester</th>
+					<th>Exam year</th>
+					<th>Exam held</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="courseDetailsForm : ${courseDetailsFormList}">
+					<td th:text="${courseDetailsForm.courseNo}"></td>
+					<td th:text="${courseDetailsForm.courseTitle}"></td>
+					<td th:text="${courseDetailsForm.courseCredit}"></td>
+					<td th:text="${courseDetailsForm.batchNo}"></td>
+					<td th:text="${courseDetailsForm.semester}"></td>
+					<td th:text="${courseDetailsForm.examYear}"></td>	
+					<td th:text="${courseDetailsForm.examHeld}"></td>	
+					<td width="85px"><a th:href="@{'/main/editSingleCourse/'+${courseDetailsForm.courseNo}+'/'+${courseDetailsForm.batchNo}}">Edit</a> |
+						    <a th:href="@{'/main/deleteSingleCourse/'+${courseDetailsForm.courseNo}+'/'+${courseDetailsForm.batchNo}}">Delete</a>
+					</td>	
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<br/><br/><br/>
+	<div th:substituteby="Layout :: footerFragment"></div>
+</body>
+</html>

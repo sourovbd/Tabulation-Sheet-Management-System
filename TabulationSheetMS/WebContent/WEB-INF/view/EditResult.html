@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="Layout :: headerFragment">
+	<title>Result Edit Form</title>
+</head>
+<body>
+	<div th:substituteby="Layout :: defaultFragment"></div>
+	<div id="body">
+		<fieldset>
+			<legend>Result Edit Form</legend>
+			<div id="box">
+				<form action="#" th:action="@{/main/saveEditedResult}" th:object="${resultForm}" method="POST" >
+				<p style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${starMarkedfieldsAreRequired}" />
+				<p>
+					<label>Registration No.</label> 
+					<input 	type="text" id="regNo" name="regNo" th:field="*{regNo}" readonly="readonly" /> 
+				</p>
+				<p>
+					<label>Name</label> 
+					<input 	type="text" id="name" name="name" th:field="*{name}" readonly="readonly" />
+				</p>
+				<p>
+					<label>Term test 1</label> 
+					<input 	type="text" id="tt1" name="tt1" th:field="*{tt1}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<label>Term test 2</label> 
+					<input 	type="text" id="tt2" name="tt2" th:field="*{tt2}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<label>Attendance</label> 
+					<input 	type="text" id="attendance" name="attendance" th:field="*{attendance}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<label>Final</label> 
+					<input 	type="text" id="finalMark" name="finalMark" th:field="*{finalMark}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
+					<label>Course No.</label> 
+					<input 	type="text" id="courseNo" name="courseNo" th:field="*{courseNo}" readonly="readonly" /> <!--  -->
+				</p>	
+				<p>
+					<label>Exam Held</label> 
+					<input 	type="text" id="examHeld" name="examHeld" th:field="*{examHeld}" readonly="readonly" /> <!--  -->
+				</p>
+				<p>
+					<label>Batch No.</label> 
+					<input 	type="text" id="batchNo" name="batchNo" th:field="*{batchNo}" readonly="readonly" /> <!--  -->
+				</p>
+				
+				<p>
+					<button class="formbutton" name="Submit" type="submit">Submit</button>
+				</p>	
+			</form>
+			</div>
+		</fieldset>
+		<br/><br/>		
+	</div>
+	<br/><br/><br/>
+	<div th:substituteby="Layout :: footerFragment"></div>
+</body>
+</html>

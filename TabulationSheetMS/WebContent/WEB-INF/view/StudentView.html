@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org">
+<head th:include="Layout :: headerFragment">
+	<title>Course Details</title>
+</head>
+<body>
+	<div th:substituteby="Layout :: defaultFragment"></div>
+	<div id="body">		
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>Registration No.</th>
+					<th>Name</th>
+					<th>Course No.</th>
+					<th>Exam Held</th>
+					<th>Batch No.</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="resultForm : ${resultFormList}">
+					<td th:text="${resultForm.regNo}"></td>
+					<td th:text="${resultForm.name}"></td>
+					<td th:text="${resultForm.courseNo}"></td>
+					<td th:text="${resultForm.examHeld}"></td>
+					<td th:text="${resultForm.batchNo}"></td>
+					<td width="85px"><a th:href="@{'/main/editSingleStudent/'+${resultForm.regNo}+'/'+${resultForm.courseNo}+'/'+${resultForm.batchNo}}">Edit</a> |
+						    <a th:href="@{'/main/deleteSingleStudent/'+${resultForm.regNo}+'/'+${resultForm.courseNo}+'/'+${resultForm.batchNo}}">Delete</a>
+					</td>	
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	</div>
+	<br/><br/><br/>
+	<div th:substituteby="Layout :: footerFragment"></div>
+</body>
+</html>
