@@ -10,8 +10,10 @@
 		<fieldset>
 			<legend>Result Edit Form</legend>
 			<div id="box">
-				<form action="#" th:action="@{/main/saveEditedResult}" th:object="${resultForm}" method="POST" >
-				<p style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${starMarkedfieldsAreRequired}" />
+				<form action="#" th:action="@{/main/saveEditedResult}" th:object="${resultForm}" method="POST" >				
+				<p>
+			     <label>&nbsp;</label><span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${starMarkedfieldsAreRequired}"></span>
+				</p>
 				<p>
 					<label>Registration No.</label> 
 					<input 	type="text" id="regNo" name="regNo" th:field="*{regNo}" readonly="readonly" /> 

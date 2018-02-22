@@ -12,7 +12,9 @@
 			<legend>User Entry</legend>
 			<div id="box">
 				<form action="#" th:action="@{/main/createUser}"  th:object="${user}" method="POST">
-				<p style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${starMarkedfieldsAreRequired}" />
+				<p>
+			     <label>&nbsp;</label><span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${starMarkedfieldsAreRequired}"></span>
+				</p>
 				<p>
 					<label>Login ID</label> 
 					<input 	type="text" id="userLoginId" name="userLoginId" th:field="*{userLoginId}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
