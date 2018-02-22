@@ -22,11 +22,11 @@ public class LoginSuccessHandlerService implements AuthenticationSuccessHandler 
 
 
 		if (roles.contains("ROLE_ADMIN")) {
-			response.sendRedirect("/PGHMS/main/createUser");
+			response.sendRedirect("/TabulationSheetMS/main/createUser");
 			return;
 		}
 		if (roles.contains("ROLE_TEACHER")) {
-			response.sendRedirect("/PGHMS/main/homePage");
+			response.sendRedirect("/TabulationSheetMS/main/homePage");
 			return;
 		}
 

@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sv.pghms.util.Constant;
 import com.sv.pghms.util.Utilities;
 import com.sv.pghms.model.TCourseDetails;
-import com.sv.pghms.model.TResultForm;
 import com.sv.pghms.model.TUser;
 import com.sv.pghms.service.AdminService;
 
@@ -50,7 +49,10 @@ public class MainController {
 	
 	// For password reset
 	@RequestMapping(value="/resetPassword",method=RequestMethod.GET)
-	public String PasswordResetPage() {
+	public String PasswordResetPage(Model model) {
+		
+		model.addAttribute("star",Constant.star);
+		model.addAttribute("starMarkedfieldsAreRequired",Constant.starMarkedfieldsAreRequired);
 		
 		return "PasswordResetPage";
 	}
@@ -77,7 +79,8 @@ public class MainController {
 				model.addAttribute("matchedNewPassword",Constant.matchedNewPassword);
 			}
 		}
-				
+		model.addAttribute("star",Constant.star);
+		model.addAttribute("starMarkedfieldsAreRequired",Constant.starMarkedfieldsAreRequired);
 		return "PasswordResetPage";
 	}
 	@RequestMapping(value="/createUser",method=RequestMethod.GET)
@@ -96,6 +99,8 @@ public class MainController {
 		}
 		model.addObject("user",user);
 		model.addObject("userList", userList);
+		model.addObject("star",Constant.star);
+		model.addObject("starMarkedfieldsAreRequired",Constant.starMarkedfieldsAreRequired);
 		
 		return model;
 	}

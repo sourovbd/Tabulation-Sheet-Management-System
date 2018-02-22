@@ -22,7 +22,7 @@ public class LoginFailureHandlerService implements AuthenticationFailureHandler 
 		//User user = userService.getUserByLoginID(authentication.getAuthentication().getName());
 		//System.out.println("Login Failure Handler");
 		
-		response.sendRedirect("/PGHMS/auth/login?error_msg=" +authentication.getMessage());
+		response.sendRedirect("/TabulationSheetMS/auth/login?error_msg=" +authentication.getMessage());
 		
 		
 	}

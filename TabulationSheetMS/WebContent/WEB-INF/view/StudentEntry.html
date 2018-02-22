@@ -41,6 +41,16 @@
                   </select> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>
 				<p>
+					<label>Select Exam Held(Year)</label> 
+					<!-- <input 	type="text" id="batchNo" name="batchNo"  /> -->
+					<select th:field="*{examHeld}">
+                         <option value=""></option>
+                         <option th:each="courseDetails : ${courseDetailsList_examHeld}"
+                            th:value="${courseDetails}"
+                            th:utext="${courseDetails}"/>
+                  </select> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
+				</p>
+				<p>
 					<button class="formbutton" name="Submit" type="submit">Submit</button>
 				</p>	
 			</form>

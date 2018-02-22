@@ -12,26 +12,27 @@
 			<legend>User Entry</legend>
 			<div id="box">
 				<form action="#" th:action="@{/main/createUser}"  th:object="${user}" method="POST">
+				<p style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${starMarkedfieldsAreRequired}" />
 				<p>
 					<label>Login ID</label> 
-					<input 	type="text" id="userLoginId" name="userLoginId" th:field="*{userLoginId}" />
+					<input 	type="text" id="userLoginId" name="userLoginId" th:field="*{userLoginId}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>
 				<p>
 					<label>Password</label>
-					<input 	type="text" id="userPassword" name="userPassword" th:field="*{userPassword}" />
+					<input 	type="text" id="userPassword" name="userPassword" th:field="*{userPassword}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>
 				
 				<p>	
 					<label>Full Name</label>
-					<input 	type="text" id="userFullName" width="140" name="userFullName" th:field="*{userFullName}" />
+					<input 	type="text" id="userFullName" width="140" name="userFullName" th:field="*{userFullName}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>		
 				<p>
 					<label>Email</label>
-					<input 	type="text" id="userEmail" name="userEmail" th:field="*{userEmail}" />
+					<input 	type="text" id="userEmail" name="userEmail" th:field="*{userEmail}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>
 				<p>
 					<label>Phone no</label>
-					<input 	type="text" id="userPhoneNo" name="userPhoneNo" th:field="*{userPhoneNo}" />
+					<input 	type="text" id="userPhoneNo" name="userPhoneNo" th:field="*{userPhoneNo}" /> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>
 				<p>
 					<label>Department</label>
@@ -39,7 +40,7 @@
 									<option value="CSE">CSE</option>
 									<option value="EEE">EEE</option>
 									<option value="SE">SE</option>
-					</select>
+					</select> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>
 				<input 	type="hidden" id="userStatus" name="userStatus" th:field="*{userStatus}" />
 				<p>	
@@ -48,7 +49,7 @@
 									<option value=""></option>
 									<option value="Admin">Admin</option>
 									<option value="Teacher">Teacher</option>				
-					</select>
+					</select> <span style="font-weight: bold; font-size: 10px; font-color:red; margin-bottom: 10px;" th:text="${star}"></span>
 				</p>
 				<p>
 					<button class="formbutton" name="Submit" type="submit">Submit</button>

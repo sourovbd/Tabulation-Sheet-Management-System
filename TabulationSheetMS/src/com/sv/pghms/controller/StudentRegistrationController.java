@@ -29,7 +29,7 @@ public class StudentRegistrationController {
 	@Autowired
 	private AdminService adminService;
 		
-	String editRegNoGlobal, courseNoGlobal, batchNoGlobal;
+	String editRegNoGlobal, courseNoGlobal, batchNoGlobal, examHeldGlobal;
 	
 	@RequestMapping(value="/studentEntry", method=RequestMethod.GET)
 	public String getBatchDetails(Model model){
@@ -40,11 +40,13 @@ public class StudentRegistrationController {
 		String courseDetails = new String(); // No need
 		List<String> courseDetailsList_courseNo = new ArrayList<String>();
 		List<String> courseDetailsList_batchNo = new ArrayList<String>();
+		List<String> courseDetailsList_examHeld = new ArrayList<String>();
 				
 		try{
 			
 			courseDetailsList_courseNo = adminService.getcourseDetailsList_courseNo();
-			courseDetailsList_batchNo = adminService.getcourseDetailsList_batchNo();		
+			courseDetailsList_batchNo = adminService.getcourseDetailsList_batchNo();	
+			courseDetailsList_examHeld = adminService.getcourseDetailsList_examHeld();
 			resultFormList = adminService.getresultListFromQuery(courseNoGlobal,batchNoGlobal);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -56,6 +58,7 @@ public class StudentRegistrationController {
 		model.addAttribute("courseDetails",courseDetails); // No need
 		model.addAttribute("courseDetailsList_courseNo", courseDetailsList_courseNo);
 		model.addAttribute("courseDetailsList_batchNo", courseDetailsList_batchNo);
+		model.addAttribute("courseDetailsList_examHeld", courseDetailsList_examHeld);
 		model.addAttribute("star",Constant.star);
 		model.addAttribute("starMarkedfieldsAreRequired",Constant.starMarkedfieldsAreRequired);
 		
@@ -63,14 +66,15 @@ public class StudentRegistrationController {
 	}
 	//For 'Add More' option, InputForm page save
 	@RequestMapping(value="/studentEntry", method=RequestMethod.POST)
-	public String saveBatchDetails(@ModelAttribute("resultForm") TResultForm resultForm, @RequestParam("courseNo") String courseNo, @RequestParam("batchNo") String batchNo, HttpServletRequest req){
+	public String saveBatchDetails(@ModelAttribute("resultForm") TResultForm resultForm, @RequestParam("courseNo") String courseNo, @RequestParam("batchNo") String batchNo, @RequestParam("examHeld") String examHeld, HttpServletRequest req){
 		
 		courseNoGlobal = courseNo;
 		batchNoGlobal = req.getParameter("batchNo");//batchNo;
+		examHeldGlobal = examHeld;
 		
 		try{
-			if(resultForm.getName()!="" && resultForm.getRegNo()!="" && 
-			   resultForm.getCourseNo()!="" && resultForm.getBatchNo()!=""){
+			if(resultForm.getName()!="" && resultForm.getRegNo()!="" && resultForm.getBatchNo()!=""
+			   && resultForm.getCourseNo()!="" && resultForm.getBatchNo()!=""){
 			adminService.deletePreviousROW(editRegNoGlobal, courseNo, batchNo);
 			adminService.insertBatch(resultForm);
 			}
@@ -133,6 +137,7 @@ public class StudentRegistrationController {
 		List<TCourseDetails> courseDetailsList = new ArrayList<TCourseDetails>();
 		List<String> courseDetailsList_courseNo = new ArrayList<String>();
 		List<String> courseDetailsList_batchNo = new ArrayList<String>();
+		List<String> courseDetailsList_examHeld = new ArrayList<String>();
 
 		editRegNoGlobal = regNo;
 		System.out.println("editRegNoGlobal: "+editRegNoGlobal);
@@ -140,6 +145,7 @@ public class StudentRegistrationController {
 		try{
 			courseDetailsList_courseNo = adminService.getcourseDetailsList_courseNo();
 			courseDetailsList_batchNo = adminService.getcourseDetailsList_batchNo();
+			courseDetailsList_examHeld = adminService.getcourseDetailsList_examHeld();
 			resultFormList = adminService.getresultListFor3Query(regNo, courseNo, batchNo);
 			System.out.println("resultFormList: "+resultFormList);
 		}catch(Exception e){
@@ -157,6 +163,7 @@ public class StudentRegistrationController {
 		model.addObject("courseDetailsList", courseDetailsList);
 		model.addObject("courseDetailsList_courseNo", courseDetailsList_courseNo);
 		model.addObject("courseDetailsList_batchNo", courseDetailsList_batchNo);
+		model.addObject("courseDetailsList_examHeld", courseDetailsList_examHeld);
 		model.addObject("star",Constant.star);
 		model.addObject("starMarkedfieldsAreRequired",Constant.starMarkedfieldsAreRequired);
 		
