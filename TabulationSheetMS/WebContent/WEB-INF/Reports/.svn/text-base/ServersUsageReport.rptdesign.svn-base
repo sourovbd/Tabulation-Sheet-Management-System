@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.2.r262_v20110209 Build &lt;2.6.2.v20110214-1523></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="fromDate" id="74">
+            <text-property name="promptText">From Date</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">Not found</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="toDate" id="75">
+            <text-property name="promptText">To Date</text-property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="javascript">Not found</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="serverName" id="184">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Na</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="providerName" id="186">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Na</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="7">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/spar-csot</property>
+            <property name="odaUser">csotteam</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">U3BhckNzb3Q=</encrypted-property>
+        </oda-data-source>
+        <script-data-source name="UsageDetails" id="118"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="UsageDetailsSet" id="119">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">serverName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">serverId</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">providerName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">userIdStartedBy</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">startTime</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">stopTime</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">userIdStoppedBy</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">usageHours</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">serverName</property>
+                    <text-property name="displayName">Server Name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">serverId</property>
+                    <text-property name="displayName">Server Id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">providerName</property>
+                    <text-property name="displayName">Provider Name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">userIdStartedBy</property>
+                    <text-property name="displayName">Started By(User Id)</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">startTime</property>
+                    <text-property name="displayName">Start Time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">stopTime</property>
+                    <text-property name="displayName">Stop Time</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">userIdStoppedBy</property>
+                    <text-property name="displayName">Stopped By(User Id)</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">usageHours</property>
+                    <text-property name="displayName">Usage Hours</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">serverName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">serverId</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">providerName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">userIdStartedBy</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">startTime</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">stopTime</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">userIdStoppedBy</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">usageHours</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[
+importPackage(Packages.org.springframework.context);
+importPackage(Packages.org.springframework.web.context.support );
+
+
+count = 0;
+var request = reportContext.getHttpServletRequest();
+serverUsageDsProvider = spring.getBean("serverUsageDSProvider");
+serverUsageList=serverUsageDsProvider.getServerUsageReportDetails(request);
+]]></method>
+            <property name="dataSource">UsageDetails</property>
+            <method name="fetch"><![CDATA[
+
+
+if(count < serverUsageList.size()){
+
+       row["serverName"] = serverUsageList.get(count).getServerName();
+       row["serverId"] = serverUsageList.get(count).getServerId();
+       row["providerName"] = serverUsageList.get(count).getServerProvider();
+       row["userIdStartedBy"] = serverUsageList.get(count).getServerStartedByUserId();
+       row["startTime"] = serverUsageList.get(count).getServerStartDateTime();
+       row["stopTime"] = serverUsageList.get(count).getServerStopDateTime();
+       row["userIdStoppedBy"] = serverUsageList.get(count).getServerStoppedByUserId();
+       row["usageHours"] = serverUsageList.get(count).getServerUsageInHours();
+       
+       count++;
+       return true;
+}
+
+return false; ]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="table" id="178"/>
+        <style name="mytable" id="179"/>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <grid id="172">
+            <property name="width">8.989583333333334in</property>
+            <column id="173"/>
+            <row id="174">
+                <cell id="175">
+                    <text id="187">
+                        <property name="textAlign">left</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[<img id="reportSparLogo"
+	src='<VALUE-OF>request=reportContext.getHttpServletRequest();
+baseUrl = request.getScheme() + "://"  + request.getServerName() + ":"  + request.getServerPort()+request.getContextPath();</VALUE-OF>/images/logo.jpg'>
+]]></text-property>
+                    </text>
+                    <text id="183">
+                        <property name="fontFamily">"Verdana"</property>
+                        <property name="fontSize">10pt</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[<div align="center"><B>
+
+Usage Details For Server:
+<VALUE-OF>params["serverName"].value</VALUE-OF> 
+( <VALUE-OF>params["providerName"].value</VALUE-OF> )
+</B>
+<br/>
+( <VALUE-OF>params["fromDate"].value</VALUE-OF> - <VALUE-OF>params["toDate"].value</VALUE-OF>
+)
+</div>]]></text-property>
+                    </text>
+                    <text id="82">
+                        <property name="textAlign">left</property>
+                        <structure name="toc"/>
+                        <property name="allowExport">false</property>
+                        <property name="contentType">html</property>
+                        <text-property name="content"><![CDATA[<a href="#" onclick="generateReport('')">Back</a>]]></text-property>
+                    </text>
+                    <label id="181">
+                        <property name="fontFamily">"Verdana"</property>
+                        <property name="fontSize">8pt</property>
+                        <property name="fontWeight">bold</property>
+                        <text-property name="text">Note: This report is showing details of all the server or selected servers of provider in given date range.</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="176">
+                <cell id="177">
+                    <table id="120">
+                        <property name="fontFamily">"Verdana"</property>
+                        <property name="fontSize">9pt</property>
+                        <property name="borderBottomColor">#A6C9E2</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#A6C9E2</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#A6C9E2</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#A6C9E2</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <property name="marginTop">10px</property>
+                        <property name="marginLeft">5px</property>
+                        <property name="marginBottom">10pt</property>
+                        <property name="overflow">scroll</property>
+                        <property name="width">7.822916666666667in</property>
+                        <property name="dataSet">UsageDetailsSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">serverName</property>
+                                <text-property name="displayName">Server Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["serverName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">serverId</property>
+                                <text-property name="displayName">Server Id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["serverId"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">providerName</property>
+                                <text-property name="displayName">Provider Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["providerName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">userIdStartedBy</property>
+                                <text-property name="displayName">Started By(User Id)</text-property>
+                                <expression name="expression" type="javascript">function wrap(longStr,width){&#13;
+length = longStr.length; &#13;
+if(length &lt;= width)&#13;
+return longStr;&#13;
+return (longStr.substring(0, width) + "\n" + wrap(longStr.substring(width, length), width));&#13;
+}&#13;
+&#13;
+wrap(dataSetRow["userIdStartedBy"],28);</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">startTime</property>
+                                <text-property name="displayName">Start Time</text-property>
+                                <expression name="expression" type="javascript">function wrap(longStr,width){&#13;
+length = longStr.length; &#13;
+if(length &lt;= width)&#13;
+return longStr;&#13;
+return (longStr.substring(0, width) + "\n" + wrap(longStr.substring(width, length), width));&#13;
+}&#13;
+wrap(dataSetRow["startTime"],28);</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">stopTime</property>
+                                <text-property name="displayName">Stop Time</text-property>
+                                <expression name="expression" type="javascript">function wrap(longStr,width){&#13;
+length = longStr.length; &#13;
+if(length &lt;= width)&#13;
+return longStr;&#13;
+return (longStr.substring(0, width) + "\n" + wrap(longStr.substring(width, length), width));&#13;
+}&#13;
+wrap(dataSetRow["stopTime"],28);</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">userIdStoppedBy</property>
+                                <text-property name="displayName">Stopped By(User Id)</text-property>
+                                <expression name="expression" type="javascript">function wrap(longStr,width){&#13;
+length = longStr.length; &#13;
+if(length &lt;= width)&#13;
+return longStr;&#13;
+return (longStr.substring(0, width) + "\n" + wrap(longStr.substring(width, length), width));&#13;
+}&#13;
+wrap(dataSetRow["userIdStoppedBy"],28);</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">usageHours</property>
+                                <text-property name="displayName">Usage Hours</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["usageHours"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <structure name="toc"/>
+                        <property name="pageBreakInterval">5</property>
+                        <column id="165">
+                            <property name="width">0.6458333333333334in</property>
+                        </column>
+                        <column id="167">
+                            <property name="width">1.3854166666666667in</property>
+                        </column>
+                        <column id="168">
+                            <property name="width">1.4791666666666667in</property>
+                        </column>
+                        <column id="169">
+                            <property name="width">1.40625in</property>
+                        </column>
+                        <column id="170">
+                            <property name="width">1.5625in</property>
+                        </column>
+                        <column id="171">
+                            <property name="width">1.2916666666666667in</property>
+                        </column>
+                        <header>
+                            <row id="121">
+                                <property name="backgroundColor">#E4F1FC</property>
+                                <property name="fontFamily">"Verdana"</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">#2E6E9E</property>
+                                <property name="textAlign">left</property>
+                                <cell id="124">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="125">
+                                        <text-property name="text">Server Id</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="128">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="129">
+                                        <property name="marginLeft">5px</property>
+                                        <text-property name="text">Started By(User Id)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="130">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="131">
+                                        <text-property name="text">Start Time</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="132">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="133">
+                                        <text-property name="text">Stop Time</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="134">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="135">
+                                        <text-property name="text">Stopped By(User Id)</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="136">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="137">
+                                        <text-property name="text">Usage Hours</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="138">
+                                <property name="fontFamily">"Verdana"</property>
+                                <property name="fontSize">10pt</property>
+                                <property name="textAlign">left</property>
+                                <cell id="141">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="142">
+                                        <property name="fontSize">8pt</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">serverId</property>
+                                    </data>
+                                </cell>
+                                <cell id="145">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="146">
+                                        <property name="fontSize">8pt</property>
+                                        <property name="paddingTop">1pt</property>
+                                        <property name="paddingLeft">5px</property>
+                                        <property name="paddingBottom">1pt</property>
+                                        <property name="canShrink">true</property>
+                                        <property name="resultSetColumn">userIdStartedBy</property>
+                                    </data>
+                                </cell>
+                                <cell id="147">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="148">
+                                        <property name="fontSize">8pt</property>
+                                        <property name="marginLeft">5px</property>
+                                        <property name="whiteSpace">pre</property>
+                                        <property name="resultSetColumn">startTime</property>
+                                    </data>
+                                </cell>
+                                <cell id="149">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="150">
+                                        <property name="fontSize">8pt</property>
+                                        <property name="marginLeft">5px</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">stopTime</property>
+                                    </data>
+                                </cell>
+                                <cell id="151">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="152">
+                                        <property name="fontSize">8pt</property>
+                                        <property name="marginLeft">5px</property>
+                                        <property name="resultSetColumn">userIdStoppedBy</property>
+                                    </data>
+                                </cell>
+                                <cell id="153">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="154">
+                                        <property name="fontSize">9pt</property>
+                                        <property name="marginLeft">5px</property>
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">usageHours</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="test">
+            <expression name="value" type="javascript">params["serverName"].value</expression>
+            <property name="type">page</property>
+        </variable-element>
+    </property>
+</report>

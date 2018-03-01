@@ -30,6 +30,7 @@
 		<slf4j.version>1.7.6</slf4j.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
   </properties>
+  
   <dependencies>
     <dependency>
       <groupId>org.eclipse.jdt.core.compiler</groupId>
@@ -240,5 +241,13 @@
 		<artifactId>groovy-all</artifactId>
 		<version>1.5.5</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.eclipse.birt.runtime/org.eclipse.birt.runtime -->
+	<dependency>
+	    <groupId>org.eclipse.birt.runtime</groupId>
+	    <artifactId>org.eclipse.birt.runtime</artifactId>
+	    <version>4.4.2</version>
+	</dependency>
+
   </dependencies>
 </project>

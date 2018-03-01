@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.4.2.v201410272105 Build &lt;4.4.2.v20150217-1805></property>
+    <html-property name="description">This is created for tabulation sheet of single course.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">221</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">221</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">fixed layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <parameters>
+        <scalar-parameter name="DepartmentName" id="187">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Computer Science &amp; Engineering</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="SemesterNumber" id="11">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="SemesterYear" id="15">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">2016</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="ExamMonthYear" id="16">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">May 2017</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="CourseNumber" id="21">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">CSE150</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="CourseTitle" id="22">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Project 150</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="CourseCredit" id="188">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">2.0</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="ChairmanName" id="190">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Md. Reza Selim</value>
+            </simple-property-list>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="testDbDataSource" id="221">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/test</property>
+            <property name="odaUser">root</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">cm9vdA==</encrypted-property>
+        </oda-data-source>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="tsms" id="416">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">com.mysql.jdbc.Driver</property>
+            <property name="odaURL">jdbc:mysql://localhost:3306/tsms</property>
+            <property name="odaUser">root</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="dataSetTestDb" id="222">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Reg_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Reg_no</text-property>
+                    <text-property name="heading">Reg_no</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">CGPA</property>
+                    <property name="analysis">measure</property>
+                    <text-property name="displayName">CGPA</text-property>
+                    <text-property name="heading">CGPA</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Grade</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Grade</text-property>
+                    <text-property name="heading">Grade</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">course_no</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">course_no</text-property>
+                    <text-property name="heading">course_no</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">semester_year</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">semester_year</text-property>
+                    <text-property name="heading">semester_year</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Student_name</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">Student_name</text-property>
+                </structure>
+            </list-property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">courseNumber</property>
+                    <property name="paramName">CourseNumber</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">semesterYear</property>
+                    <property name="paramName">SemesterYear</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Reg_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">Student_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">CGPA</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Grade</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">course_no</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">semester_year</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">testDbDataSource</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Reg_no</property>
+                    <property name="nativeName">Reg_no</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">Student_name</property>
+                    <property name="nativeName">Student_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">CGPA</property>
+                    <property name="nativeName">CGPA</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Grade</property>
+                    <property name="nativeName">Grade</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">course_no</property>
+                    <property name="nativeName">course_no</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">semester_year</property>
+                    <property name="nativeName">semester_year</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select *
+from t_result 
+where course_no like ? 
+and semester_year like ?
+order by Reg_no asc;]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="T_Result" id="417">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">t_courseNo</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue" type="javascript">CSE-150</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">t_batchNo</property>
+                    <property name="nativeName"></property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">-1</property>
+                    <property name="position">2</property>
+                    <expression name="defaultValue" type="javascript">2016</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">t_regNo</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">t_name</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">t_cgpa</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">t_gradeLetter</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">tsms</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">t_regNo</property>
+                    <property name="nativeName">t_regNo</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">t_name</property>
+                    <property name="nativeName">t_name</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">t_cgpa</property>
+                    <property name="nativeName">t_cgpa</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">t_gradeLetter</property>
+                    <property name="nativeName">t_gradeLetter</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select t_result.t_regNo, t_result.t_name,t_result.t_cgpa, t_result.t_gradeLetter
+from t_result where t_result.t_courseNo like ? and t_result.t_batchNo like ? order by t_result.t_regNo asc ]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <DataSetParameters>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>1</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+    <parameter>
+      <design:ParameterDefinition>
+        <design:inOutMode>In</design:inOutMode>
+        <design:attributes>
+          <design:identifier>
+            <design:name></design:name>
+            <design:position>2</design:position>
+          </design:identifier>
+          <design:nativeDataTypeCode>-1</design:nativeDataTypeCode>
+          <design:precision>0</design:precision>
+          <design:scale>0</design:scale>
+          <design:nullability>Unknown</design:nullability>
+        </design:attributes>
+      </design:ParameterDefinition>
+    </parameter>
+  </DataSetParameters>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab-cell" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="topMargin">0.3645833333333333in</property>
+            <property name="leftMargin">0.4166666666666667in</property>
+            <property name="bottomMargin">0.4270833333333333in</property>
+            <property name="rightMargin">0.4270833333333333in</property>
+            <page-footer>
+                <data id="412">
+                    <list-property name="boundDataColumns">
+                        <structure>
+                            <property name="name">FooterText</property>
+                            <text-property name="displayName">FooterText</text-property>
+                            <expression name="expression" type="javascript">vars["FooterText"]</expression>
+                            <property name="dataType">string</property>
+                        </structure>
+                    </list-property>
+                    <property name="resultSetColumn">FooterText</property>
+                </data>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table id="372">
+            <property name="marginTop">2pt</property>
+            <property name="width">7.458333333333333in</property>
+            <property name="dataSet">dataSetTestDb</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Reg_no</property>
+                    <text-property name="displayName">Reg_no</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Reg_no"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Student_name</property>
+                    <text-property name="displayName">Student_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Student_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">CGPA</property>
+                    <text-property name="displayName">CGPA</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["CGPA"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Grade</property>
+                    <text-property name="displayName">Grade</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Grade"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="388">
+                <property name="textAlign">left</property>
+                <property name="width">1.8645833333333333in</property>
+            </column>
+            <column id="389">
+                <property name="textAlign">left</property>
+                <property name="width">3.375in</property>
+            </column>
+            <column id="390">
+                <property name="textAlign">left</property>
+                <property name="width">1.0104166666666667in</property>
+            </column>
+            <column id="391">
+                <property name="textAlign">left</property>
+                <property name="width">1.2083333333333333in</property>
+            </column>
+            <header>
+                <row id="414">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomStyle">none</property>
+                    <property name="borderLeftStyle">none</property>
+                    <property name="borderRightStyle">none</property>
+                    <property name="borderTopStyle">none</property>
+                    <property name="textAlign">left</property>
+                    <property name="height">1.4166666666666667in</property>
+                    <cell id="415">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">medium</property>
+                        <data id="411">
+                            <property name="fontSize">10pt</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="textAlign">center</property>
+                            <property name="display">block</property>
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">HeaderText</property>
+                                    <text-property name="displayName">HeaderText</text-property>
+                                    <expression name="expression" type="javascript">vars["HeaderText"]</expression>
+                                    <property name="dataType">string</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">HeaderText</property>
+                        </data>
+                    </cell>
+                </row>
+                <row id="373">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">medium</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">medium</property>
+                    <property name="textAlign">left</property>
+                    <property name="height">0.5520833333333334in</property>
+                    <cell id="374">
+                        <data id="400">
+                            <list-property name="boundDataColumns">
+                                <structure>
+                                    <property name="name">CourseCredit</property>
+                                    <expression name="expression" type="javascript">'Credit No = ' +params["CourseCredit"]</expression>
+                                    <property name="dataType">string</property>
+                                    <property name="allowExport">true</property>
+                                </structure>
+                            </list-property>
+                            <property name="resultSetColumn">CourseCredit</property>
+                        </data>
+                        <label id="392">
+                            <property name="textAlign">left</property>
+                            <property name="display">block</property>
+                            <text-property name="text">Reg No</text-property>
+                        </label>
+                    </cell>
+                    <cell id="375">
+                        <label id="394">
+                            <text-property name="text">&#13;
+Name</text-property>
+                        </label>
+                    </cell>
+                    <cell id="376">
+                        <label id="396">
+                            <text-property name="text">GPA&#13;
+4.0</text-property>
+                        </label>
+                    </cell>
+                    <cell id="377">
+                        <label id="398">
+                            <text-property name="text">Grade&#13;
+Letter</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="401">
+                    <property name="textAlign">left</property>
+                    <property name="height">0.3333333333333333in</property>
+                    <cell id="402">
+                        <data id="406">
+                            <property name="resultSetColumn">Reg_no</property>
+                        </data>
+                    </cell>
+                    <cell id="403">
+                        <data id="407">
+                            <property name="resultSetColumn">Student_name</property>
+                        </data>
+                    </cell>
+                    <cell id="404">
+                        <data id="408">
+                            <property name="resultSetColumn">CGPA</property>
+                        </data>
+                    </cell>
+                    <cell id="405">
+                        <data id="410">
+                            <property name="resultSetColumn">Grade</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="383">
+                    <property name="height">0.21875in</property>
+                    <cell id="384">
+                        <property name="colSpan">4</property>
+                        <property name="rowSpan">1</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <table id="419">
+            <property name="dataSet">T_Result</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">t_regNo</property>
+                    <text-property name="displayName">t_regNo</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["t_regNo"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">t_name</property>
+                    <text-property name="displayName">t_name</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["t_name"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">t_cgpa</property>
+                    <text-property name="displayName">t_cgpa</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["t_cgpa"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">t_gradeLetter</property>
+                    <text-property name="displayName">t_gradeLetter</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["t_gradeLetter"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="435"/>
+            <column id="436"/>
+            <column id="437"/>
+            <column id="438"/>
+            <header>
+                <row id="420">
+                    <cell id="421"/>
+                    <cell id="422"/>
+                    <cell id="423"/>
+                    <cell id="424"/>
+                </row>
+            </header>
+            <detail>
+                <row id="425">
+                    <cell id="426"/>
+                    <cell id="427"/>
+                    <cell id="428"/>
+                    <cell id="429"/>
+                </row>
+            </detail>
+            <footer>
+                <row id="430">
+                    <cell id="431"/>
+                    <cell id="432"/>
+                    <cell id="433"/>
+                    <cell id="434"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+    <property name="pageVariables">
+        <variable-element name="HeaderText">
+            <expression name="value" type="javascript">var y = 'th'&#13;
+if(params["SemesterNumber"]==1){&#13;
+  y = 'st'&#13;
+} else if(params["SemesterNumber"]==2){&#13;
+  y = 'nd'&#13;
+}&#13;
+y = params["DepartmentName"] + ' '+params["SemesterNumber"] + y + ' Semester Exam - ' + params["SemesterYear"]&#13;
+&#13;
+var res=y+'\n'&#13;
+res+='Examination held in : '+params["ExamMonthYear"]+'\n'&#13;
+res+='\n'&#13;
+res+='Course No : '+params["CourseNumber"]+' Title : '+params["CourseTitle"]+'\n'&#13;
+res+='\n'&#13;
+res+='Registered but disqualified = F'+'\n'&#13;
+res+='\n'&#13;
+vars["HeaderText"]='TABULATION SHEET\n'+res</expression>
+            <property name="type">report</property>
+        </variable-element>
+        <variable-element name="FooterText">
+            <expression name="value" type="javascript">var footer = 'Signature and date of the Chairman _______________________'+'\n'&#13;
+footer = footer + 'Name of the Chairman: '+params["ChairmanName"]</expression>
+            <property name="type">page</property>
+        </variable-element>
+    </property>
+</report>

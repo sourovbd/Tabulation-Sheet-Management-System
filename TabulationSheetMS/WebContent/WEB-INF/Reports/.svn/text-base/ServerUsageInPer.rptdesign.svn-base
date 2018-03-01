@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.6.2.r262_v20110209 Build &lt;2.6.2.v20110214-1523></property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">96</property>
+    <data-sources>
+        <script-data-source name="UsageInPerDS" id="7"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="UsageInPerDataSet" id="8">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">serverName</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">serverId</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">cloudProvider</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">hours</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">usageInPer</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">serverName</property>
+                    <text-property name="displayName">Server Name</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">serverId</property>
+                    <text-property name="displayName">Server Id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">cloudProvider</property>
+                    <text-property name="displayName">Cloud Provider</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">hours</property>
+                    <text-property name="displayName">Total hours userd</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">usageInPer</property>
+                    <text-property name="displayName">Usage In %</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">serverName</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">serverId</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">cloudProvider</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">hours</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">usageInPer</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[
+importPackage(Packages.org.springframework.context);
+importPackage(Packages.org.springframework.web.context.support );
+importPackage(Packages.java.util.*);
+
+count = 0;
+
+var request = reportContext.getHttpServletRequest();
+
+serviceObj = spring.getBean("usageInPercentageDSProvider");
+serverList=serviceObj.getUsageInPercentageForServers(request);
+keySet = serviceObj.getArrayListOfKey(serverList);
+]]></method>
+            <property name="dataSource">UsageInPerDS</property>
+            <method name="fetch"><![CDATA[if(count < keySet.size()){
+
+       row["serverName"]  = keySet.get(count);
+	    usageBean  = serviceObj.getMapValue(serverList,row["serverName"]);
+	    row["hours"] = usageBean.getTotalUsage();
+	    row["usageInPer"] = usageBean.getUsageInPercentage();
+	    row["serverId"] = usageBean.getServerId();
+	    row["cloudProvider"] = usageBean.getCloudProvider();
+       count++;
+       return true;
+}
+
+return false; ]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <text id="171">
+            <property name="textAlign">left</property>
+            <property name="contentType">html</property>
+            <text-property name="content"><![CDATA[<img id="reportSparLogo"
+	src='<VALUE-OF>request=reportContext.getHttpServletRequest();
+baseUrl = request.getScheme() + "://"  + request.getServerName() + ":"  + request.getServerPort()+request.getContextPath();</VALUE-OF>/images/logo.jpg'>
+]]></text-property>
+        </text>
+        <grid id="66">
+            <property name="backgroundColor">#FFFFFF</property>
+            <property name="borderBottomColor">#000000</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1px</property>
+            <property name="borderLeftColor">#000000</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1px</property>
+            <property name="borderRightColor">#000000</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1px</property>
+            <property name="borderTopColor">#000000</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1px</property>
+            <property name="width">7.4375in</property>
+            <column id="67">
+                <property name="width">7.4375in</property>
+            </column>
+            <row id="68">
+                <property name="height">0.4479166666666667in</property>
+                <cell id="69">
+                    <label id="74">
+                        <property name="fontWeight">bold</property>
+                        <structure name="toc"/>
+                        <text-property name="text">Note: This report gives details server usage in % which can be filtered based on server,cloud provider and date range. The % are calculated based on the hours it is used in given time date range.</text-property>
+                    </label>
+                </cell>
+            </row>
+            <row id="70">
+                <cell id="71">
+                    <table id="32">
+                        <property name="borderBottomColor">#A6C9E2</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">1px</property>
+                        <property name="borderLeftColor">#A6C9E2</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">1px</property>
+                        <property name="borderRightColor">#A6C9E2</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">1px</property>
+                        <property name="borderTopColor">#A6C9E2</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">1px</property>
+                        <property name="marginTop">20px</property>
+                        <property name="marginLeft">5px</property>
+                        <property name="marginBottom">20px</property>
+                        <property name="width">7.302083333333333in</property>
+                        <property name="dataSet">UsageInPerDataSet</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">serverName</property>
+                                <text-property name="displayName">Server Name</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["serverName"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">serverId</property>
+                                <text-property name="displayName">Server Id</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["serverId"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">cloudProvider</property>
+                                <text-property name="displayName">Cloud Provider</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["cloudProvider"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">hours</property>
+                                <text-property name="displayName">Total hours userd</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["hours"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">usageInPer</property>
+                                <text-property name="displayName">Usage In %</text-property>
+                                <expression name="expression" type="javascript">dataSetRow["usageInPer"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <column id="61">
+                            <property name="width">1.5416666666666667in</property>
+                        </column>
+                        <column id="62">
+                            <property name="width">1.0520833333333333in</property>
+                        </column>
+                        <column id="63">
+                            <property name="width">1.6458333333333333in</property>
+                        </column>
+                        <column id="64">
+                            <property name="width">1.8333333333333333in</property>
+                        </column>
+                        <column id="65">
+                            <property name="width">1.2291666666666667in</property>
+                        </column>
+                        <header>
+                            <row id="33">
+                                <property name="backgroundColor">#E4F1FC</property>
+                                <property name="fontFamily">"Verdana"</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="color">#2E6E9E</property>
+                                <property name="textAlign">left</property>
+                                <cell id="34">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="35">
+                                        <text-property name="text">Server Name</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="36">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="37">
+                                        <text-property name="text">Server Id</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="38">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="39">
+                                        <text-property name="text">Cloud Provider</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="40">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="41">
+                                        <text-property name="text">Total hours used</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="42">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <label id="43">
+                                        <text-property name="text">Usage In %</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="44">
+                                <property name="fontFamily">"Verdana"</property>
+                                <property name="fontSize">9pt</property>
+                                <cell id="45">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="46">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">serverName</property>
+                                    </data>
+                                </cell>
+                                <cell id="47">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="48">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">serverId</property>
+                                    </data>
+                                </cell>
+                                <cell id="49">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="50">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">cloudProvider</property>
+                                    </data>
+                                </cell>
+                                <cell id="51">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="52">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">hours</property>
+                                    </data>
+                                </cell>
+                                <cell id="53">
+                                    <property name="borderBottomColor">#A6C9E2</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">1px</property>
+                                    <property name="borderRightColor">#A6C9E2</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">1px</property>
+                                    <data id="54">
+                                        <property name="whiteSpace">nowrap</property>
+                                        <property name="resultSetColumn">usageInPer</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+            </row>
+        </grid>
+    </body>
+</report>
