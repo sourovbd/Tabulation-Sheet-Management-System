@@ -110,9 +110,11 @@ public class MainController {
 		
 		ModelAndView model = new ModelAndView("redirect:/main/createUser");
 		try{
-			
-			adminService.insertUser(user);
-			
+			if(user.getUserLoginId()!="" && user.getUserEmail()!="" && user.getUserRole()!="" &&
+			   user.getUserPassword()!="" && user.getUserPhoneNo()!="" && 
+			   user.getUserFullName()!="" && user.getUserDepartment()!=""){
+				adminService.insertUser(user);
+			}
 		}catch(Exception e) {
 			
 			e.printStackTrace();
@@ -123,7 +125,7 @@ public class MainController {
 	@RequestMapping(value="/editUser/{id}")
 	public ModelAndView EditUser(@PathVariable("id") String id) {
 		
-		ModelAndView model = new ModelAndView("UserCreationPage");
+		ModelAndView model = new ModelAndView("EditUserPage");
 		TUser user = new TUser();
 		List<TUser> userList = new ArrayList<TUser>();
 		
@@ -137,6 +139,8 @@ public class MainController {
 		}
 		model.addObject("user",user);
 		model.addObject("userList", userList);
+		model.addObject("star",Constant.star);
+		model.addObject("starMarkedfieldsAreRequired",Constant.starMarkedfieldsAreRequired);
 		
 		return model;
 	}

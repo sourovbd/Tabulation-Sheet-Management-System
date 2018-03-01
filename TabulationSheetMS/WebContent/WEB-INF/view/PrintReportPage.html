@@ -2,17 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 	xmlns:th="http://www.thymeleaf.org">
 <head th:include="Layout :: headerFragment">
-	<title>Course Details</title>
+	<title>Report print query form</title>
 </head>
 <body>
 	<div th:substituteby="Layout :: defaultFragment"></div>
 	<div id="body">
 		<fieldset>
-			<legend>Search Student</legend>
+			<legend>Report print query form</legend>
 			<div id="box">
-				<form action="#" th:action="@{/main/viewStudents}" th:object="${resultForm}" method="GET" >
+				<form action="#" th:action="@{/main/printReport}" th:object="${courseDetails}"  method="GET" > <!-- fetchResultQuery -->
 				<p>
 					<label>Select Course No.</label> 
+					<!-- <input 	type="text" id="courseNo" name="courseNo"  />  -->
 					<select th:field="*{courseNo}">
                          <option value=""></option>
                          <option th:each="courseDetails : ${courseDetailsListCourseNo}"
@@ -22,20 +23,21 @@
 				</p>
 				<p>
 					<label>Select Batch No.</label> 
+					<!-- <input 	type="text" id="batchNo" name="batchNo"  /> -->
 					<select th:field="*{batchNo}">
                          <option value=""></option>
                          <option th:each="courseDetails : ${courseDetailsListBatchNo}"
                             th:value="${courseDetails}"
                             th:utext="${courseDetails}"/>
                   </select>
-				</p>				
+				</p>
 				<p>
-					<button class="formbutton" name="Submit" type="submit">Submit</button>
+					<button class="formbutton" name="Submit" type="submit">Print report</button>
 				</p>	
 			</form>
 			</div>
 		</fieldset>
-		<br/><br/>	
+		<br/><br/>		
 	</div>
 	<br/><br/><br/>
 	<div th:substituteby="Layout :: footerFragment"></div>

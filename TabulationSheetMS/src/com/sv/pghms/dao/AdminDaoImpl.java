@@ -138,12 +138,13 @@ public class AdminDaoImpl implements AdminDao{
 
 	public void calculateCGPALetterGrade(TResultForm resultForm){
 		String cgpa, gradeLetter;
-		int tt1, tt2, ttMark, attendance, finalMark, totalMark;
-		tt1 = Integer.parseInt(resultForm.getTt1());
-		tt2 = Integer.parseInt(resultForm.getTt2());
+		int attendance;
+		double tt1, tt2, ttMark, finalMark, totalMark;
+		tt1 = Double.parseDouble(resultForm.getTt1());
+		tt2 = Double.parseDouble(resultForm.getTt2());
 		ttMark = (tt1 + tt2)/2;
 		attendance = Integer.parseInt(resultForm.getAttendance());
-		finalMark = Integer.parseInt(resultForm.getFinalMark());
+		finalMark = Double.parseDouble(resultForm.getFinalMark());
 		totalMark = (ttMark + attendance + finalMark);
 		
 		resultForm.setTtMark(String.valueOf(ttMark));
