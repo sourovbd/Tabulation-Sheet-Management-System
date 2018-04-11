@@ -1,0 +1,31 @@
+												TSMS
+New Improvement:
+1. Admin & teacher separate module. - done
+2. User creation option rakhte hobe. - done
+3. Activate & deactive user option. - done
+4. Adding view course & view student option. - done
+latest:
+5. Add some text where needed. Pls fill up * marked fields etc.
+6. Excel import & show in jsp.
+Optional:
+	JQuery - Auto complete functionality.
+
+service-> ExcelPOIHelper.java
+model-> MyCell.java
+view-> ExcelFileUpload.jsp
+
+Bugs:
+1. If edit name then data disappears from db. So some fields must be uneditable. - done
+2. result table sort by registration no. - done
+3. Select option a unique data show korte hobe. - done
+4. Design accept login page is not working properly. - done(automatic-changed in css file yesterday. issue auto solved today.)
+5. In result table deleting data while editing. - done
+6. Edit course a prev. data & edited data both save hosse db te. - done
+7. Same course entry for different batches causes problem. - done.
+8. Search result option a exam held date remove korte hobe. - done.
+9. Course entry deyar shomoy kon data na diye submit button a click korle empty data save hoy db te. - done.
+
+Test:
+1. Test- form binding & displaying data will be different. - done.
+2. Checking Student registration option. - Done
+ <option th:each="courseDetails : ${courseDetailsFormListCourseNo}" courseDetails?
